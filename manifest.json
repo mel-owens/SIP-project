@@ -1,0 +1,19 @@
+
+{
+  "manifest_version": 3,
+  "name": "Tailored Learning",
+  "version": "0.1.0",
+  "description": "Analyze emails and get AI guidance locally.",
+  "permissions": [],
+  "host_permissions": ["http://localhost:8000/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*","https://outlook.office.com/*",
+      "https://sso.godaddy.com/*","https://*.secureserver.net/*"],
+      "js": ["content.js"],
+      "css": ["panel.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": { "128": "icon128.png" }
+}

@@ -1,0 +1,14 @@
+#tl-panel {
+  position: fixed; top: 80px; right: 16px; width: 360px; height: 70vh;
+  background: #fff; color: #111; border: 1px solid #e5e7eb; 
+    border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.15); z-index: 999999; display:flex;
+    flex-direction:column;
+  font-family: ui-sans-serif,system-ui; overflow:hidden;
+}
+#tl-header { padding:10px; border-bottom:1px solid #eee; display:flex; 
+    justify-content:space-between; }
+#tl-body { padding:10px; overflow:auto; display:grid; gap:8px; }
+#tl-input { display:flex; gap:6px; padding:10px; border-top:1px 
+    solid #eee; }
+#tl-input input { flex:1; }
