@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Tailored Learning – Status</title>
+  <style>
+    :root{--bg:#fff;--fg:#111;--panel:#f5f5f5;--ok:#16a34a;--warn:#ca8a04;--bad:#dc2626}
+    body{margin:0;font-family:system-ui, -apple-system, Segoe UI, Roboto, Arial;background:var(--bg);color:var(--fg)}
+    header{display:flex;align-items:center;gap:12px;padding:14px;border-bottom:1px solid #e5e7eb}
+    main{padding:16px;display:grid;gap:16px}
+    .row{display:flex;gap:12px;flex-wrap:wrap}
+    .card{background:var(--panel);border-radius:12px;padding:12px}
+    .badge{padding:4px 8px;border-radius:8px;background:#e5e7eb;display:inline-block}
+    .ok{color:var(--ok)}
+    .bad{color:var(--bad)}
+  </style>
+</head>
+<body>
+  <header>
+    <strong>🎯 Tailored Learning</strong>
+    <span class="badge">Server Status</span>
+    <a href="/docs" style="margin-left:auto">API Docs →</a>
+    <a href="/admin" style="margin-left:8px">Admin →</a>
+  </header>
+
+  <main>
+    <section class="row">
+      <div class="card">
+        <h3>Health</h3>
+        <div>API:
+          <b class="{{ 'ok' if health.api == 'ok' else 'bad' }}">{{ health.api }}</b>
+        </div>
+        <div>DB:
+          <b class="{{ 'ok' if health.db == 'ok' else 'bad' }}">{{ health.db }}</b>
+        </div>
+        <div>Version: {{ version }}</div>
+      </div>
+
+      <div class="card">
+        <h3>Counts</h3>
+        <div>Emails: <b>{{ counts.emails }}</b></div>
+        <div>URLs: <b>{{ counts.urls }}</b></div>
+        <div>Audits: <b>{{ counts.audits }}</b></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Recent Analyses</h3>
+      <ul>
+        {% for e in recent %}
+          <li>#{{ e.id }} — {{ e.subject }} — {{ e.verdict }} (risk {{ e.risk_score }})</li>
+        {% else %}
+          <li>No analyses yet.</li>
+        {% endfor %}
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
