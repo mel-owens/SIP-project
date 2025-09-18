@@ -1,0 +1,30 @@
+/*my design tokens for light/dark modes and base styles */
+
+:root { --bg:#ffffff; --fg:#111827; 
+  --muted:#6b7280; --panel:#f3f4f6; --accent:#2563eb; }
+.dark { --bg:#0b1220; --fg:#e5e7eb; 
+  --muted:#9ca3af; --panel:#111827; --accent:#60a5fa; }
+
+html, body, #root { height:100%; margin:0; }
+body { background:var(--bg); color:var(--fg); font-family: 
+  ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto; }
+
+.panel { background:var(--panel); border-radius:12px; 
+  padding:14px; box-shadow: 0 1px 0 rgba(0,0,0,.02) inset; }
+.navlink { color: var(--fg); text-decoration:none; 
+  padding:6px 8px; border-radius:8px; }
+.navlink:hover { background: rgba(0,0,0,.06); }
+input, textarea { width:100%; padding:10px; border-radius:8px; 
+  border:1px solid #e5e7eb; box-sizing:border-box; background:#fff; }
+textarea { resize: vertical; min-height:120px; }
+button { padding:10px 12px; border-radius:8px; 
+  border:1px solid #d1d5db; background:#fff; cursor:pointer; }
+button.primary { background:var(--accent); 
+  border-color:var(--accent); color:#fff; }
+.badge { padding:4px 8px; border-radius:8px; 
+  background:#e5e7eb; font-size:12px; display:inline-block; }
+.card { background:#fff; border:1px solid #e5e7eb; 
+  border-radius:12px; padding:12px; }
+.list { display:grid; gap:10px; }
+
+
